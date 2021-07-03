@@ -1,0 +1,96 @@
+---
+title: "Bellabeat: Marketing Strategy for Smart Devices"
+author: "MW Kamdar"
+date: "July 2021"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+library(knitr)
+library(rmdformats)
+library(tidyverse)
+library(lubridate)
+
+setwd("E:/Admin/Documents/Google Data Analyst Course/Case Study 2 BellaBeat/Clean_Data")
+DailyActivityDF <- read.csv("DailyActivityDF.csv")
+DailySleepDF <- read.csv("DailySleepDF.csv")
+HourlyActivityDF <- read.csv("HourlyActivityDF.csv")
+HourlySleepDF <- read.csv("HourlySleepDF.csv")
+```
+
+## Business Task
+
+### **Step 1:**
+Use data from fitness trackers to gain insights on user behaviour.
+\
+\
+
+### **Step 2:**
+Use insights to guide marketing strategy
+
+
+## Our Data
+
+- **Sample size:** 35 fitbit users
+\
+\
+
+- **Duration:** 2 months (12/03/16 - 12/05/16)
+\
+\
+
+- **Attributes:** activity (intensity, duration, distance), step count, sleep, weight
+
+
+## Key Findings
+
+**Daily user averages:**
+
+- Step count: 7253
+- Distance covered: 5.2 kilometers
+- Time spent sedentary:  16 hours 27 minutes
+
+Fitbit users are more active than the average person (~5000 steps) BUT are still mostly inactive!
+
+## Key Findings cont.
+ 
+ 
+```{r sleep_vs_activitytype, echo=FALSE, message=FALSE, warning=FALSE}
+ActivityType <- DailyActivityDF %>% 
+pivot_longer(cols = c("VeryActiveDistance","ModeratelyActiveDistance","LightlyActiveDistance"),
+             names_to = "ActiveType", values_to = "Distance")
+
+ggplot(ActivityType, aes(x=Distance, y=MinutesAsleep, color=ActiveType)) + 
+  geom_point() + geom_smooth(color="black", method = "lm") + facet_wrap(~ActiveType) + 
+  labs(x = "Distance", y = "Minutes asleep", 
+       title = "Distance vs minutes asleep for different intensities", color = "Intensity of activity") +
+  scale_color_discrete(labels = c("Lightly Active", "Moderately Active", "Very Active"))
+```
+
+Activity can help regulate sleep. **Moderate intensity** appears to have the best effect.
+
+## Key Findings cont.
+
+```{r sleep_vs_calories, echo=FALSE, message=FALSE, warning=FALSE}
+ggplot(ActivityType, aes(x=Distance, y=Calories, color=ActiveType)) + 
+  geom_point() + geom_smooth(color="black", method = "lm") + facet_wrap(~ActiveType) + 
+  labs(x = "Distance", y = "Calories burned", 
+       title = "Distance vs calories burned for different intensities", 
+       color = "Intensity of activity") +
+  scale_color_discrete(labels = c("Lightly Active", "Moderately Active", "Very Active"))
+```
+
+Measuring calories burned can help regulate weight. **Quantity** of activity is far more important than **intensity**.
+
+
+## Recommendations
+
+Incorporate the following ideas:
+
+- People with fitness trackers are more active than the average person.
+- Moderate activity is beneficial for sleep regulation and quality.
+- Meeting activity goals can help in weight loss or weight management.
+- Devices can track progress, and ensure the above goals are being met.
+
