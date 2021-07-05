@@ -4,7 +4,7 @@ Description of files:
 
 **Bellabeat Files:**
 
-Bellabeat-Analysis: A complete data analysis project performed in RStudio as part of Google Data Analytics Professional Certificate. Involves analysing fitness tracking data to generate marketing strategies for fitness tracking smart devices.
+Bellabeat-Analysis: A complete data analysis project performed in RStudio as part of Google Data Analytics Professional Certificate. Involves analysing fitness tracking data to generate marketing strategies for fitness tracking smart devices. Please download and open locally through a browser to view (file is too large to view on GitHub).
 
 Bellabeat-Presentation: A slideshow based on the above analysis, that would be used in a hypothetical presentation to company stakeholders. Please go to https://wazeerkamdar.github.io/ to view.
 
