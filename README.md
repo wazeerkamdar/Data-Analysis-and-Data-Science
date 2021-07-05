@@ -14,5 +14,5 @@ IPL_Data_Analysis_Dashboard: An image of the dashboard. Of course you cannot int
 
 Bellabeat-Analysis: A complete data analysis project performed in RStudio. Involves analysing fitness tracking data to generate marketing strategies for fitness tracking smart devices.
 
-Bellabeat-Presentation: A slideshow based on the above analysis, that would be used in a hypothetical presentation to company stakeholders.
+Bellabeat-Presentation: A slideshow based on the above analysis, that would be used in a hypothetical presentation to company stakeholders. Please go to https://wazeerkamdar.github.io/ to view.
 
